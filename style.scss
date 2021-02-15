@@ -1,0 +1,89 @@
+ $maincolor: #42a7fe;
+ html {
+     font-size: 62.5%;
+ }
+ 
+ body {
+     font-family: 'Poppins', sans-serif;
+     font-size: 1.6rem;
+     background-color: #e6e9f1;
+ }
+ 
+ .dropdown {
+     width: 40rem;
+     margin: 2rem auto 0;
+     position: relative;
+     &__select {
+         padding: 2rem 2.5rem 2rem 4rem;
+         background-color: #42a7fe;
+         color: white;
+         display: flex;
+         align-items: center;
+     }
+     &__text {
+         margin-left: 3.5rem;
+     }
+     &__caret {
+         margin-left: auto;
+     }
+     &__item {
+         padding: 2rem 2.5rem 2rem 4rem;
+         color: #b3bbce;
+         display: flex;
+         align-items: center;
+         transition: all 0.5s linear;
+         border-left: 3px solid transparent;
+         cursor: pointer;
+         &:not(:last-child) {
+             border-bottom: 1px solid #eee;
+         }
+         &:hover {
+             color: #74809d;
+             border-left-color: $maincolor;
+         }
+     }
+     &__list {
+         position: absolute;
+         left: 0;
+         top: 100%;
+         width: 100%;
+         margin-top: 3rem;
+         border-radius: 4px;
+         background: white;
+         box-shadow: 0 0 10px 0 rgba( black, 0.1);
+         opacity: 0;
+         visibility: hidden;
+         transition: all 0.25s linear;
+         &::before {
+             content: "";
+             width: 2rem;
+             height: 2rem;
+             border-radius: 3px;
+             background-color: white;
+             box-shadow: 0 0 10px 0 rgba( black, 0.1);
+             z-index: -1;
+             //  border-left: 10px solid transparent;
+             //  border-right: 10px solid transparent;
+             //  border-bottom: 10px solid red;
+             position: absolute;
+             top: 0;
+             right: 2rem;
+             transform: translateY(- 50%) rotate(45deg);
+         }
+         &::after {
+             content: "";
+             position: absolute;
+             height: 3rem;
+             width: 100%;
+             top: 0;
+             left: 0;
+             transform: translateY(-100%);
+         }
+     }
+     &:hover {
+         .dropdown__list {
+             opacity: 1;
+             visibility: visible;
+         }
+     }
+ }
